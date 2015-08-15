@@ -1,5 +1,6 @@
 var express = require("express");
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var port = process.env.PORT || 80;
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -31,7 +32,9 @@ app.post('/sms', function(req, res){
   	console.log("Recieved text");
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
-});
+// http.listen(3000, function(){
+//   console.log('listening on *:3000');
+// });
+
+app.listen(port);
 
